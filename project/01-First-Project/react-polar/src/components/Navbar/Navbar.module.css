@@ -4,9 +4,27 @@
     padding: 20px;
 }
 .item a {
-    color: white;
+    color: darkslategrey;
     text-decoration: none;
 }
 .item a.activeLink {
     color: purple;
+}
+.friends {
+    padding-top: 50px;
+    color: darkslategrey;
+
+}
+.friendsItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.friendsItem a {
+    text-decoration: none;
+    color: dodgerblue;
+}
+.friends img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
 }
