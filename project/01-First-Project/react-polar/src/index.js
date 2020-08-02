@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './redux/state';
+import store from './redux/redux-store';
 
 export let rerenderEntireTree = (state) => {
     ReactDOM.render(
@@ -14,7 +14,10 @@ export let rerenderEntireTree = (state) => {
     );
 }
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree); //calling subscribe and putting inside rerenderEntireTree
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+}); //calling subscribe and putting inside rerenderEntireTree
 
 
 
