@@ -1,0 +1,16 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+.dialogItem {
+    padding: 10px;
+}
+.dialogItem a {
+    text-decoration: none;
+    color: dodgerblue;
+}
+.dialogItem img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}
