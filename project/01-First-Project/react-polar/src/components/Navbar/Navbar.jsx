@@ -2,20 +2,19 @@ import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
-const Friends = (props) => {
-    let path = '/dialogs/' + props.id;
-    return (
-        <div>
-            <img src='https://static.grouple.co/uploads/pics/11/53/886_p.jpg'/>
-            <div>
-                <NavLink to={path}>{props.name}</NavLink>
-            </div>
-        </div>
-    );
-}
-
 const Navbar = (props) => {
-    let friendsElements = props.state.friends.map( f => <Friends name={f.name} id={f.id} /> );
+    const Friends = (props) => {
+        let path = '/dialogs/' + props.id;
+        return (
+            <div>
+                <img src='https://static.grouple.co/uploads/pics/11/53/886_p.jpg'/>
+                <div>
+                    <NavLink to={path}>{props.name}</NavLink>
+                </div>
+            </div>
+        );
+    }
+   let friendsElements = props.state.friends.map( f => <Friends name={f.name} id={f.id} /> );
     return (
         <nav className={s.nav}>
             <div className={s.item}>
