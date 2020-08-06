@@ -22,16 +22,16 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
-            let newMessage = {
-                id: 6,
-                message: state.newMessageText
-            }
-            state.messages.push(newMessage); // adding new post to array posts.
-            state.newMessageText = ' '; // clearing textarea after adding post
-            return state;
+            return {
+                ...state,
+                messages: [...state.messages, {id: 6, message: state.newMessageText}],
+                newMessageText: ' '
+            };
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newText;
-            return state;
+            return {
+                ...state,
+                newMessageText: action.newText
+            }
         default:
             return state;
     }

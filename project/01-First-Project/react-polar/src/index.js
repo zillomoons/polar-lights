@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import store from './redux/redux-store';
 import {Provider} from "react-redux";
 
-export let rerenderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
           <Provider store={store}>
@@ -15,12 +14,6 @@ export let rerenderEntireTree = () => {
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
-rerenderEntireTree(store.getState());
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-}); //calling subscribe and putting inside rerenderEntireTree
 
 
 
