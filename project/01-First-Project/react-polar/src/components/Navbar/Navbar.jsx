@@ -14,7 +14,7 @@ const Navbar = (props) => {
             </div>
         );
     }
-   let friendsElements = props.state.friends.map( f => <Friends name={f.name} id={f.id} /> );
+   let friendsElements = props.sidebarPage.friends.map( f => <Friends name={f.name} id={f.id} /> );
     return (
         <nav className={s.nav}>
             <div className={s.item}>
