@@ -3,7 +3,6 @@ import s from './users.module.css'
 
 const Users = (props) => {
     if (props.users.length === 0) {
-
         props.setUsers([ {
         id: 1,
         photo: 'https://pm1.narvii.com/6532/db0c810124ee43a8d559782e5b8091b7f589cdc1_00.jpg',
