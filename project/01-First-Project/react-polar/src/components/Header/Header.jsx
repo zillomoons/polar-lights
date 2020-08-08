@@ -1,10 +1,11 @@
 import React from 'react';
 import s from './Header.module.css';
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
     return (
         <div className={s.header}>
-          <img src='https://lh3.googleusercontent.com/proxy/kOnkBWO5h1oGLG_ioieoxCuJ0iq2FQmJ4Nun-tqme4081TaWRaCAFItc6B7ot8E0OLZBmEMzn-lrwoLRKoazSdD5H4oAHia5pmuq4LGhhfgHWG5RRFXsDQ'  />
+          <img src= {logo} />
         </div>
     );
 }
