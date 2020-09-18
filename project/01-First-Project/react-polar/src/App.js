@@ -13,18 +13,22 @@ import UsersContainer from "./components/Users/UsersContainer";
 const App = () => {
     return (
         <BrowserRouter>
-            <div className='app-wrapper'>
-                <Header/>
-                <NavbarContainer />
-                <div className='app-wrapper-content'>
+            <main className='app-wrapper'>
+                <header className='header'>
+                    <Header/>
+                </header>
+                <nav className='sidebar'>
+                    <NavbarContainer />
+                </nav>
+                <section className='main-content'>
                   <Route path='/profile' render={ () => <Profile />} />
                   <Route path='/dialogs' render={ () => <DialogsContainer />} />
                   <Route path='/users' render={ () => <UsersContainer />} />
                   <Route path='/news' component={News} />
                   <Route path='/music' component={Music} />
                   <Route path='/settings' component={Settings} />
-                </div>
-            </div>
+                </section>
+            </main>
         </BrowserRouter>
     );
 }
