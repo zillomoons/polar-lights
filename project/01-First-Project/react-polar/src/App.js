@@ -17,7 +17,7 @@ const App = () => {
                 <header className='header'>
                     <Header/>
                 </header>
-                <nav className='sidebar'>
+                <nav className='navbar'>
                     <NavbarContainer />
                 </nav>
                 <section className='main-content'>
@@ -28,6 +28,11 @@ const App = () => {
                   <Route path='/music' component={Music} />
                   <Route path='/settings' component={Settings} />
                 </section>
+                <aside className='sidebar'>
+                    <div>
+                        Followers
+                    </div>
+                </aside>
             </main>
         </BrowserRouter>
     );

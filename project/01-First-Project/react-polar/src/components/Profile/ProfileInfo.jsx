@@ -4,7 +4,9 @@ import s from './ProfileInfo.module.css';
 const ProfileInfo = (props) => {
     return (
         <div>
-            <div><img src='https://m.dw.com/image/37030280_101.jpg' /></div>
+            <div className={s.profile_image}>
+                <img src='https://m.dw.com/image/37030280_101.jpg' alt='polar lights' />
+            </div>
             <div className={s.description}>
                 ava+description
             </div>
