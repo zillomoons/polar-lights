@@ -12,42 +12,41 @@ class Users extends React.Component {
     render() {
         let pagesCount = this.props.totalCount / this.props.pageSize;
         let pages = [];
-        for (let i=1; i <= pagesCount; i++) {
+        for (let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         };
 
         return <div>
             <div>
-                 { pages.map( p => {
-                     return <span className={this.props.currentPage === p && s.selectedPage}>{p}</span>
-                 }
-                 )}
+                {pages.map(p => {
+                    return <span className={this.props.currentPage === p && s.selectedPage}>{p}</span>
+                }
+                )}
 
             </div>
-            {
-                this.props.users.map(u =>
-                    <div key={u.id}>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.photo}/>
-                        <div>
-                            {u.followed
-                                ? <button onClick={() => {
-                                    this.props.unfollow(u.id)
-                                }}>UNFOLLOW</button>
-                                : <button onClick={() => {
-                                    this.props.follow(u.id)
-                                }}>FOLLOW</button>
-                            }
-                        </div>
-                        <div>
-                            <div>{u.name}</div>
-                            <div>{u.status}</div>
-                        </div>
-                        <div>
-                            <div>{"u.location.city"}</div>
-                            <div>{"u.location.country"}</div>
-                        </div>
+            {this.props.users.map(u =>
+                <div key={u.id}>
+                    <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.photo} />
+                    <div>
+                        {u.followed
+                            ? <button onClick={() => {
+                                this.props.unfollow(u.id)
+                            }}>UNFOLLOW</button>
+                            : <button onClick={() => {
+                                this.props.follow(u.id)
+                            }}>FOLLOW</button>
+                        }
                     </div>
-                )
+                    <div>
+                        <div>{u.name}</div>
+                        <div>{u.status}</div>
+                    </div>
+                    <div>
+                        <div>{"u.location.city"}</div>
+                        <div>{"u.location.country"}</div>
+                    </div>
+                </div>
+            )
             }
         </div>
     }
