@@ -1,9 +1,9 @@
+import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { followAC, setUsersAC, unfollowAC, setCurrentPageAC, setTotalCountAC, toggleIsFetchingAC } from '../../redux/usersReducer';
-import * as axios from 'axios';
+import { followAC, setCurrentPageAC, setTotalCountAC, setUsersAC, toggleIsFetchingAC, unfollowAC } from '../../redux/usersReducer';
 import Users from './Users';
-import preloader from '../../assets/images/preloader.svg';
+import Preloader from '../Common/Preloader/preloader';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -31,7 +31,7 @@ class UsersContainer extends React.Component {
     render() {
 
         return <>
-            { this.props.isFetching ? <img src={preloader} /> : null}
+            { this.props.isFetching ? <Preloader /> : null}
             <Users totalCount={this.props.totalCount}
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
