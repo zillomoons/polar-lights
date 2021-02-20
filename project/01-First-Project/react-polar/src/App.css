@@ -10,17 +10,17 @@
              'n c s';
     grid-template-rows: 80px 1fr;
     grid-template-columns: 200px 1fr 200px;
-    grid-gap: 10px;
+    /* grid-gap: 10px; */
  }
  .main-content { 
     grid-area: c;
-    
      
  }
 
 .navbar {
     padding: 10px;
     grid-area: n;
+    background-color: #f3f4f6;
 }
 .header {
     padding: 10px;

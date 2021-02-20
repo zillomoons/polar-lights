@@ -1,20 +1,20 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = (props) => {
     const Friends = (props) => {
         let path = '/dialogs/' + props.id;
         return (
             <div>
-                <img src='https://static.grouple.co/uploads/pics/11/53/886_p.jpg'/>
+                <img src='https://static.grouple.co/uploads/pics/11/53/886_p.jpg' />
                 <div>
                     <NavLink to={path}>{props.name}</NavLink>
                 </div>
             </div>
         );
     }
-   let friendsElements = props.sidebarPage.friends.map( f => <Friends name={f.name} id={f.id} /> );
+    let friendsElements = props.sidebarPage.friends.map(f => <Friends name={f.name} id={f.id} />);
     return (
         <nav className={s.nav}>
             <div className={s.item}>
@@ -28,6 +28,9 @@ const Navbar = (props) => {
             </div>
             <div className={s.item}>
                 <NavLink to='/music' activeClassName={s.activeLink}>Music</NavLink>
+            </div>
+            <div className={s.item}>
+                <NavLink to='/currency' activeClassName={s.activeLink}>Currency</NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to='/settings' activeClassName={s.activeLink}>Settings</NavLink>
