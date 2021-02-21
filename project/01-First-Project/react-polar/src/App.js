@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
 import { BrowserRouter, Route } from "react-router-dom";
 import News from "./components/News";
 import Music from "./components/Music";
@@ -10,13 +9,14 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import CurrencyContainer from './components/Currency/currencyContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 const App = () => {
     return (
         <BrowserRouter>
             <main className='app-wrapper'>
                 <header className='header'>
-                    <Header />
+                    <HeaderContainer />
                 </header>
                 <nav className='navbar'>
                     <NavbarContainer />
