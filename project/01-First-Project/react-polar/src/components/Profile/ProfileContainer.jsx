@@ -2,7 +2,8 @@ import React from 'react';
 import Profile from "./Profile";
 import { connect } from 'react-redux';
 import { setProfile } from '../../redux/profileReducer';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { withAuthRedirect } from '../../hoc/AuthRedirect';
 
 
 class ProfileContainer extends React.Component {
@@ -14,13 +15,14 @@ class ProfileContainer extends React.Component {
         this.props.setProfile(userId);
     }
     render() {
-        if (!this.props.isAuth) return <Redirect to={'/login'} />;
         return <Profile {...this.props} profile={this.props.profile} />
     }
 }
 
-let mapStateToProps = (state) => ({ profile: state.profilePage.profile, isAuth: state.auth.isAuth });
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
-let WithUrlProfileContainer = withRouter(ProfileContainer); // creating container component with URL data
+let mapStateToProps = (state) => ({ profile: state.profilePage.profile });
+
+let WithUrlProfileContainer = withRouter(AuthRedirectComponent); // creating container component with URL data
 
 export default connect(mapStateToProps, { setProfile })(WithUrlProfileContainer); //creating container component that connects with STORE
