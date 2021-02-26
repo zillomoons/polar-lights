@@ -24,9 +24,27 @@ export const usersAPI = {
         })
     },
     setProfile(userId) {
+        console.warn('Obsolete method. Please use profileAPI object.')
+        return profileAPI.setProfile(userId);
+    },
+}
+export const profileAPI = {
+    setProfile(userId) {
         return instance.get(`profile/${userId}`).then(response => {
             return response.data;
         })
+    },
+    getStatus(userId) {
+        return instance.get(`profile/status/${userId}`)
+        // .then(response => {
+        //     return response.data;
+        // })
+    },
+    updateStatus(status) {
+        return instance.put('profile/status', { status: status })
+        // .then(response => {
+        //     return response.data;
+        // })
     },
 }
 export const authAPI = {
