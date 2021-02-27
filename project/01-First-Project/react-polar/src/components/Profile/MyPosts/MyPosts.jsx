@@ -4,13 +4,13 @@ import { maxLengthCreator, required } from '../../../utilities/validators';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 
-const maxLength30 = maxLengthCreator(30);
+const maxLength10 = maxLengthCreator(10);
 
 let AddNewPostForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
         <div>
             <Field name="newPostText" component="textarea"
-                validate={[required, maxLength30]} />
+                validate={[required, maxLength10]} />
         </div>
         <div>
             <button>Add post</button>
