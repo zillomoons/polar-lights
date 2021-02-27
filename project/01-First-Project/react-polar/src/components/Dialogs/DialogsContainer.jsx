@@ -1,9 +1,20 @@
 import React from 'react';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/dialogsReducer";
+import { addMessage } from "../../redux/dialogsReducer";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { withAuthRedirect } from '../../hoc/AuthRedirect';
 import { compose } from 'redux';
+
+let mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage,
+    }
+}
+
+export default compose(
+    connect(mapStateToProps, { addMessage }),
+    withAuthRedirect
+)(Dialogs)
 
 // const DialogsContainer = () => {
 //     return (
@@ -23,24 +34,3 @@ import { compose } from 'redux';
 //         </StoreContext.Consumer>
 //     );
 // }
-
-let mapStateToProps = (state) => {
-    return {
-        dialogsPage: state.dialogsPage,
-    }
-}
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: () => {
-            dispatch(addMessageActionCreator())
-        },
-        updateNewMessageText: (text) => {
-            dispatch(updateNewMessageTextActionCreator(text))
-        }
-    }
-}
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect
-)(Dialogs)
