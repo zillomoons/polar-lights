@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import News from "./components/News";
 import Music from "./components/Music";
 import Settings from "./components/Settings";
@@ -11,11 +11,21 @@ import CurrencyContainer from './components/Currency/currencyContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/login';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { initializeApp } from '../src/redux/appReducer';
+import Preloader from './components/Common/Preloader/preloader';
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <main className='app-wrapper'>
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializeApp()
+    }
+    render() {
+        if (!this.props.isInitialized) {
+            return <Preloader />
+        }
+        return (
+            <div className='app-wrapper'>
                 <header className='header'>
                     <HeaderContainer />
                 </header>
@@ -35,11 +45,16 @@ const App = () => {
                 <aside className='sidebar'>
                     <div>
                         Followers
-                    </div>
+                        </div>
                 </aside>
-            </main>
-        </BrowserRouter>
-    );
+            </div>
+        );
+    }
 }
+const mapStateToProps = (state) => ({
+    isInitialized: state.app.isInitialized,
+})
 
-export default App;
+export default compose(
+    withRouter,
+    connect(mapStateToProps, { initializeApp }))(App);
