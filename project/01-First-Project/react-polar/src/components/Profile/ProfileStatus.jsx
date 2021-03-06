@@ -1,5 +1,4 @@
 import React from 'react';
-import Preloader from '../Common/Preloader/preloader';
 
 
 class ProfileStatus extends React.Component {
