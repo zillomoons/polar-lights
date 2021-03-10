@@ -3,10 +3,12 @@ import s from './users.module.css';
 import userPhoto from '../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
 import Pagination from '../Common/pagination';
+import UsersSearchForm from './UsersSearchForm';
 
 const Users = (props) => {
 
     return <div>
+        <UsersSearchForm />
         <Pagination totalCount={props.totalCount} pageSize={props.pageSize}
             currentPage={props.currentPage} onPageChanged={props.onPageChanged} />
 
@@ -39,5 +41,6 @@ const Users = (props) => {
         }
     </div >
 }
+
 
 export default Users;
