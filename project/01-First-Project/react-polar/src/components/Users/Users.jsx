@@ -6,7 +6,7 @@ import User from './User';
 const Users = (props) => {
     return <div>
         <UsersSearchForm />
-        <Pagination totalCount={props.totalCount} pageSize={props.pageSize}
+        <Pagination totalItemsCount={props.totalCount} pageSize={props.pageSize}
             currentPage={props.currentPage} onPageChanged={props.onPageChanged} />
         {props.users.map(u =>
             <User key={u.id} user={u} followingInProgress={props.followingInProgress} unfollow={props.unfollow} follow={props.follow} />
