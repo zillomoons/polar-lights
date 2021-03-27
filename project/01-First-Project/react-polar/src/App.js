@@ -14,7 +14,7 @@ import { initializeApp } from '../src/redux/appReducer';
 import Preloader from './components/Common/Preloader/preloader';
 import store from './redux/redux-store';
 import { Provider } from "react-redux";
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Suspense } from 'react';
 import suspensedComponent from './hoc/withSuspense';
 
@@ -62,9 +62,9 @@ let AppContainer = compose(
 const AppSuperContainer = (props) => {
     return <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter>
+            <HashRouter>
                 <AppContainer />
-            </BrowserRouter>
+            </HashRouter>
         </Provider>
     </React.StrictMode>
 }
