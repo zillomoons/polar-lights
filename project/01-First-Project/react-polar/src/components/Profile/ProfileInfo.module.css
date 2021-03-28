@@ -6,3 +6,30 @@
 .profilePhoto {
     max-width: 200px;
 }
+.profileStatus {
+    color: rgb(143, 89, 197);
+    cursor: pointer;
+    transition: 0.3ms ease-in-out;
+}
+
+input[type='file'] {
+    display: none;
+}
+.customFileUpload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+input[type='text']{
+        font-size: 16px;
+        font-size: max(16px, 1em);
+        font-family: inherit;
+        padding: 0.25em 0.5em;
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+}
+.contacts {
+    padding: 0 45px;
+}
