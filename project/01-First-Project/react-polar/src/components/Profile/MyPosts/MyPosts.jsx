@@ -26,8 +26,6 @@ const AddNewPostReduxForm = reduxForm({
 
 const MyPosts = React.memo((props) => {
 
-    console.log('My Posts');
-
     let postsElements =
         props.profilePage.posts.map(p => <Post message={p.message} likescount={p.likesCount} key={p.id} />)
 
