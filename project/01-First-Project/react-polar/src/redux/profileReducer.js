@@ -9,11 +9,9 @@ const SET_PROFILE_PHOTO = 'SET_PROFILE_PHOTO';
 
 let initialState = {
     posts: [
-        { id: 1, message: 'Hey, how are you?', likesCount: '5' },
-        { id: 2, message: 'Yo, everything is cool!', likesCount: '12' },
-        { id: 3, message: 'Be true to yourself.', likesCount: '25' },
-        { id: 4, message: 'Make a difference.', likesCount: '34' },
-        { id: 5, message: 'Stay calm and procced.', likesCount: '27' }
+        { id: 1, message: 'Yo, everything is cool!', likesCount: '12' },
+        { id: 2, message: 'Make a difference.', likesCount: '34' },
+        { id: 3, message: 'Stay calm and procced.', likesCount: '27' }
     ],
     profile: null,
     status: "",
@@ -25,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             return {
                 ...state,
-                posts: [...state.posts, { id: 6, message: action.newPostText, likesCount: 0 }],
+                posts: [...state.posts, { id: 4, message: action.newPostText, likesCount: 0 }],
             }
         case SET_USER_PROFILE:
             return {
