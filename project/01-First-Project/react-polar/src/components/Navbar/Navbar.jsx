@@ -7,7 +7,7 @@ const Navbar = (props) => {
         let path = '/dialogs/' + props.id;
         return (
             <div>
-                <img src='https://static.grouple.co/uploads/pics/11/53/886_p.jpg' />
+                <img src='https://static.grouple.co/uploads/pics/11/53/886_p.jpg' alt={'ava'} />
                 <div>
                     <NavLink to={path}>{props.name}</NavLink>
                 </div>
