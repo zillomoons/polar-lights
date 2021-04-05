@@ -36,12 +36,12 @@ const Navbar = (props) => {
                 <NavLink to='/settings' activeClassName={s.activeLink}>Settings</NavLink>
             </div>
 
-            <div className={s.friends}>
+            {/* <div className={s.friends}>
                 <h3>Friends</h3>
                 <div className={s.friendsItem}>
                     {friendsElements}
                 </div>
-            </div>
+            </div> */}
 
         </nav>
     );
