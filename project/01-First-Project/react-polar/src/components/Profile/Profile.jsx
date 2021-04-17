@@ -1,12 +1,12 @@
 import React from 'react';
-import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-
+import NavbarContainer from '../Navbar/NavbarContainer'
 
 const Profile = (props) => {
     return (
-        <div className={s.content}>
+        <>
+            <NavbarContainer />
             <ProfileInfo profile={props.profile}
                 status={props.status}
                 updateStatus={props.updateStatus}
@@ -14,7 +14,7 @@ const Profile = (props) => {
                 savePhoto={props.savePhoto}
                 saveProfile={props.saveProfile} />
             <MyPostsContainer store={props.store} />
-        </div>
+        </>
     );
 }
 

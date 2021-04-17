@@ -6,6 +6,7 @@ import Preloader from '../Common/Preloader/preloader';
 import { withAuthRedirect } from '../../hoc/AuthRedirect';
 import { compose } from 'redux';
 import { getUsers, getPageSize, getTotalCount, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../redux/usersSelectors';
+import NavbarContainer from '../../components/Navbar/NavbarContainer'
 
 
 class UsersContainer extends React.Component {
@@ -21,6 +22,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
+            <NavbarContainer />
             { this.props.isFetching ? <Preloader /> : null}
             <Users totalCount={this.props.totalCount}
                 pageSize={this.props.pageSize}

@@ -1,12 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Route, withRouter } from "react-router-dom";
-import News from "./components/News";
-import Music from "./components/Music";
-import Settings from "./components/Settings";
-import NavbarContainer from "./components/Navbar/NavbarContainer";
+import { Route, Switch, withRouter } from "react-router-dom";
+import News from "./pages/News"
+import Settings from "./pages/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
-import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/login';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -17,6 +14,7 @@ import { Provider } from "react-redux";
 import { HashRouter } from 'react-router-dom';
 import { Suspense } from 'react';
 import suspensedComponent from './hoc/withSuspense';
+import Home from './pages/HomePage';
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
@@ -31,23 +29,17 @@ class App extends React.Component {
             return <Preloader />
         }
         return (
-            <div className='app-wrapper'>
-                <header className='header'>
-                    <HeaderContainer />
-                </header>
-                <nav className='navbar'>
-                    <NavbarContainer />
-                </nav>
-                <section className='main-content'>
+            <>
+                <Switch>
+                    <Route path='/' exact component={Home} />
                     <Route path='/profile/:userId?' render={suspensedComponent(ProfileContainer)} />
                     <Route path='/dialogs' render={suspensedComponent(DialogsContainer)} />
                     <Route path='/users' render={() => <UsersContainer />} />
                     <Route path='/login' render={() => <Login />} />
                     <Route path='/news' component={News} />
-                    <Route path='/music' component={Music} />
                     <Route path='/settings' component={Settings} />
-                </section>
-            </div>
+                </Switch>
+            </>
         );
     }
 }

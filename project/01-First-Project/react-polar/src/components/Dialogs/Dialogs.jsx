@@ -5,6 +5,7 @@ import Message from "./Message/Message";
 import { Field, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../utilities/validators';
 import { Textarea } from '../Common/FormsControls/FormsControls';
+import NavbarContainer from '../Navbar/NavbarContainer';
 
 const maxLength50 = maxLengthCreator(50);
 
@@ -27,7 +28,7 @@ const AddMessageReduxForm = reduxForm({
 
 const Dialogs = (props) => {
     let dialogsElements =
-        props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} />);
+        props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} photo={d.photo} />);
     let messagesElements =
         props.dialogsPage.messages.map(m => <Message message={m.message} key={m.id} id={m.id} />);
 
@@ -36,18 +37,21 @@ const Dialogs = (props) => {
     };
 
     return (
-        <div className={s.dialogs}>
+        <>
+            <NavbarContainer />
+            <div className={s.dialogs}>
 
-            <div className={s.dialogItem}>
-                {dialogsElements}
-            </div>
-            <div className={s.messages}>
-                <div>
-                    {messagesElements}
+                <div className={s.dialogItem}>
+                    {dialogsElements}
                 </div>
+                <div className={s.messages}>
+                    <div>
+                        {messagesElements}
+                    </div>
+                </div>
+                <AddMessageReduxForm onSubmit={addNewMessage} />
             </div>
-            <AddMessageReduxForm onSubmit={addNewMessage} />
-        </div>
+        </>
     );
 }
 

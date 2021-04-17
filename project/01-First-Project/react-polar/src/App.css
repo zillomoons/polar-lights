@@ -1,34 +1,8 @@
- .app-wrapper {
-    margin: 0 auto; 
-    margin-left: 100px;
-    margin-right: 100px;
-    background-color: #ffffff;
-    display: grid;
-
-    grid-template-areas:
-             'h h h'
-             'n c s';
-    grid-template-rows: 80px 1fr;
-    grid-template-columns: 200px 1fr 200px;
-    /* grid-gap: 10px; */
- }
- .main-content { 
-    grid-area: c;
-     
- }
-
-.navbar {
-    padding: 10px;
-    grid-area: n;
-    background-color: #f3f4f6;
-}
-.header {
-    padding: 10px;
-    grid-area: h;
-    background-color: #202020;
-    color: #ffffff;
-}
-.sidebar {
-    grid-area: s;
-    padding: 10px;
-}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  

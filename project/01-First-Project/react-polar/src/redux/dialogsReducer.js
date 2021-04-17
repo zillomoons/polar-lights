@@ -2,11 +2,12 @@ const ADD_MESSAGE = 'ADD-MESSAGE'; // creating action type
 
 let initialState = {
     dialogs: [
-        { id: 1, name: 'Zein' },
-        { id: 2, name: 'Mia' },
-        { id: 3, name: 'Maybel' },
-        { id: 4, name: 'Max' },
-        { id: 5, name: 'Zuss' }
+        { id: 1, name: 'Christine', photo: require('../assets/images/chris.jpg') },
+        { id: 2, name: 'Dan', photo: require('../assets/images/dan.jpg') },
+        { id: 3, name: 'Emile', photo: require('../assets/images/emile.jpg') },
+        { id: 4, name: 'Ethan', photo: require('../assets/images/ethan.jpg') },
+        { id: 5, name: 'Max', photo: require('../assets/images/max.jpg') },
+        { id: 6, name: 'Sergio', photo: require('../assets/images/sergio.jpg') },
     ],
     messages: [
         { id: 1, message: 'Hey, how are you?' },
