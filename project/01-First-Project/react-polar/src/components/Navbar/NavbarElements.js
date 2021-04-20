@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 
 export const Nav = styled.nav`
-    /* background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')}; */
-    background: #000;
+    background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')};
     height: 80px;
-    /* margin-top: -80px; */
+    margin-top: -80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-size: 1rem;
     position: sticky;
@@ -19,14 +18,21 @@ export const Nav = styled.nav`
         transition: 0.8s all ease;
     }
 `
+export const NavbarContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 24px;
+    max-width: 1200px;
 
+`
 export const NavLogo = styled(Link)`
     justify-self: flex-start;
-    color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-left: 24px;
 `
 
 export const LogoImg = styled.img`
@@ -46,6 +52,7 @@ export const Bars = styled(FaBars)`
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
+        z-index: 999;
     }
 `
 
@@ -60,17 +67,19 @@ export const NavMenu = styled.div`
         background: #0d0d0d;
         margin: 0;
         position: fixed;
-        z-index: 999;
+        z-index: 500;
         width: 100%;
         height: 100vh;
-        top: 80px;
+        top: 0;
         right: -100%;
         transition: 850ms;
+        padding-top: 80px;
 
         &.active{
             right: 0;
             transition: 350ms;
             margin: 0 auto;
+
         }
     }
 `

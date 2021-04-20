@@ -4,7 +4,8 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import News from "./pages/News"
 import Settings from "./pages/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
-import Login from './components/Login/login';
+// import Login from './components/Login/login';
+import Login from './components/Login/signin'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from '../src/redux/appReducer';
