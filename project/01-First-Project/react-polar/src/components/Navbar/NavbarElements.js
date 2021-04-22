@@ -38,6 +38,7 @@ export const NavLogo = styled(Link)`
 export const LogoImg = styled.img`
     width: 70px;
     height: 70px;
+    object-fit: cover;
 `
 
 export const Bars = styled(FaBars)`

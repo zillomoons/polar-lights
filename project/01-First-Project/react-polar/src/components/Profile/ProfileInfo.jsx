@@ -1,66 +1,77 @@
 import React, { useState } from 'react';
-import Preloader from '../Common/Preloader/preloader';
-import s from './ProfileInfo.module.css';
-import ProfileStatusWithHooks from './ProfileStatusWithHooks';
-import userPhoto from '../../assets/images/user.png'
-import ProfileDataReduxForm from './ProfileDataForm';
+import s from './HeroProfile/HeroProfile.module.css'
+import { ProfileDataReduxForm } from './ProfileDataForm';
+import { ProfileDataFormik } from './ProfileDataForm';
+import { FaGithub, FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { MdEdit } from 'react-icons/md'
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
+
+const ProfileInfo = ({ profile, isOwner, saveProfile }) => {
 
     let [editMode, setEditMode] = useState(false);
 
-    if (!profile) {
-        return <Preloader />
-    }
-    const onProfilePhotoChanged = (e) => {
-        if (e.target.files.length) {
-            savePhoto(e.target.files[0]);
-        }
-    }
+    const onEditMode = () => setEditMode(true);
+
     const onSubmit = (formData) => {
         saveProfile(formData).then(() => {
             setEditMode(false);
-        }
-        )
+        })
     }
+
     return (
-        <div>
-            <div className={s.description}>
-                <img src={profile.photos.large || userPhoto} className={s.profilePhoto} />
-                <div>{isOwner && <label htmlFor={'file-upload'} className={s.customFileUpload}>
-                    Choose File
-                    <input id={'file-upload'} type={'file'} onChange={onProfilePhotoChanged} />
-                </label>}
-                </div>
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
-                {editMode
-                    ? <ProfileDataReduxForm initialValues={profile} onSubmit={onSubmit} />
-                    : <ProfileData profile={profile} isOwner={isOwner} onEditMode={() => { setEditMode(true) }} />}
+        <div className={s.aboutMe}>
+            <div className={s.title}>
+                Profile Info
+                {isOwner && <button className={s.editBtn} onClick={onEditMode}><MdEdit /></button>}
             </div>
+            {editMode
+                // ? <ProfileDataReduxForm initialValues={profile} isOwner={isOwner} onSubmit={onSubmit} />
+                ? <ProfileDataFormik profile={profile} onSubmit={onSubmit} />
+                : <ProfileData profile={profile} isOwner={isOwner} onEditMode={() => { setEditMode(true) }} />}
         </div>
     )
 }
 
-const ProfileData = ({ profile, isOwner, onEditMode }) => {
-    return <div>
-        {isOwner && <div><button onClick={onEditMode}>Edit</button></div>}
-        <div><b>Name:</b> {profile.fullName}</div>
-        <div><b>Looking for a job: </b> {profile.lookingForAJob ? 'yes' : 'no'}</div>
-        <div> {profile.lookingForAJob && <div><b>Professional skills: </b> {profile.lookingForAJobDescription}</div>} </div>
-        <div> <b>About me: </b> {profile.aboutMe}</div>
+export const ProfileData = ({ profile }) => {
+    return <>
         <div>
-            <b>Contacts: </b> {Object.keys(profile.contacts).map(key => {
-                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
-            }
-            )}
+            <h4>About me</h4>
+            {profile.aboutMe}
         </div>
-    </div>
+        <div><b>Looking for a job: </b> {profile.lookingForAJob ? 'yes' : 'no'}</div>
+        <div>
+            <h4>Professional skills </h4>
+            {profile.lookingForAJobDescription}
+        </div>
+        <SocialMedia profile={profile} />
+    </>
 }
 
-const Contact = ({ contactTitle, contactValue }) => {
-    return <div className={s.contacts}>
-        <b>{contactTitle}:</b> {contactValue}
-    </div>
+const SocialMedia = ({ profile }) => {
+
+    return (
+        <div className={s.socialMedia}>
+            <a href={profile.contacts.github
+                ? profile.contacts.github : '#'} target='_blank'><FaGithub /></a>
+            <a href={profile.contacts.facebook
+                ? profile.contacts.facebook : '#'} target='_blank'><FaFacebookF /></a>
+            <a href={profile.contacts.twitter
+                ? profile.contacts.twitter : '#'} target='_blank'><FaTwitter /></a>
+            <a href={profile.contacts.youtube
+                ? profile.contacts.youtube : '#'} target='_blank'><FaYoutube /></a>
+
+        </div>
+    )
 }
+// const Contact = ({ contactTitle, contactValue }) => {
+//     return <div className={s.contacts}>
+//         <b>{contactTitle}:</b> {contactValue}
+//     </div>
+// }
+/* <b>Contacts: </b> {Object.keys(profile.contacts).map(key => {
+               return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
+           }
+           )} */
+
 
 export default ProfileInfo;

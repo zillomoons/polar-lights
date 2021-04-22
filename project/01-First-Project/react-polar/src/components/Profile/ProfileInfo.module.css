@@ -1,16 +1,5 @@
 
-.description {
-    padding: 10px;
-}
 
-.profilePhoto {
-    max-width: 200px;
-}
-.profileStatus {
-    color: rgb(143, 89, 197);
-    cursor: pointer;
-    transition: 0.3ms ease-in-out;
-}
 
 input[type='file'] {
     display: none;
@@ -22,9 +11,9 @@ input[type='file'] {
     cursor: pointer;
 }
 input[type='text']{
+        display: block;
         font-size: 16px;
-        font-size: max(16px, 1em);
-        font-family: inherit;
+        width: 200px;
         padding: 0.25em 0.5em;
         background-color: #fff;
         border: 2px solid #ccc;
@@ -33,3 +22,4 @@ input[type='text']{
 .contacts {
     padding: 0 15px;
 }
+

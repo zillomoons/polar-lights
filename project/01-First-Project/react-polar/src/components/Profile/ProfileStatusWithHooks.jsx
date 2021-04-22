@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import s from './ProfileInfo.module.css';
+import s from './HeroProfile/HeroProfile.module.css'
+import { MdEdit } from 'react-icons/md'
 
 
 const ProfileStatusWithHooks = (props) => {
@@ -26,13 +27,14 @@ const ProfileStatusWithHooks = (props) => {
     return (
         <div>
             {!editMode &&
-                <div>
-                    <b>Status: </b><span className={s.profileStatus} onDoubleClick={activateEditMode}>{props.status || "No Status"}</span>
+                <div className={s.profileStatus} >
+                    <span >{props.status || "No Status"}</span>
+                    <button className={s.statusEditBtn} onClick={activateEditMode}><MdEdit /></button>
                 </div>
             }
             {editMode &&
-                <div>
-                    <label className={s.customStatusInput} for={'statusInput'}></label>
+                <div className={s.customStatusInput}>
+                    <label for={'statusInput'}></label>
                     <input id={'statusInput'} type={'text'} onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} />
                 </div>
             }

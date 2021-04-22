@@ -8,14 +8,14 @@ export const MyTextInput = ({ label, ...props }) => {
     const hasError = meta.touched && meta.error;
 
     return (
-        <>
+        <div className={s.myTextInput}>
             <label htmlFor={props.id || props.name}>{label}</label>
             <input {...field} {...props}
                 className={hasError ? s.error : ''} />
             {hasError
                 ? <div className={s.error}>{meta.error}</div>
                 : null}
-        </>
+        </div>
     )
 }
 

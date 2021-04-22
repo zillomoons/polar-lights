@@ -1,0 +1,107 @@
+
+img.heroBg{
+    width: 100%;
+    height: 40vh;
+}
+
+.profileIntro{
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 50px;
+    margin: -7rem auto 50px;
+    z-index: 200;
+}
+.profileCol1{
+    margin: 0 auto;
+}
+
+.profileCol2{
+    color: #fff;
+    display: flex;
+    align-items: center;
+ }
+
+.statusEditBtn{
+    color: #fff;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.statusEditBtn:hover{
+    transform: translateY(-2px)
+}
+.customStatusInput input[type='text']{
+    border: none;
+    outline: none;
+}
+
+.profilePhoto{
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 2px #fff;
+}
+.customFileUpload{
+    margin-left: -30px;
+    color: #848790b7;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.customFileUpload:hover{
+    color:#848790;
+}
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    
+}
+button.editBtn{
+    font-size: 20px;
+    border-radius: 4px;
+    color: #000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+button.editBtn:hover{
+    transform: translateY(-2px)
+}
+
+.aboutMe{
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px 10px;
+    max-width: 268px;
+}
+.socialMedia{
+    display: flex;
+}
+.socialMedia a{
+    color: #000 ;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width:768px) {
+
+    .profileIntro{
+        grid-template-columns: 1fr;
+    }
+    .profileCol2{
+        color: #000;
+     }
+    .statusEditBtn{
+        color: #000;
+        
+    }
+    
+}

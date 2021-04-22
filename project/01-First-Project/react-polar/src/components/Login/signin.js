@@ -51,7 +51,7 @@ const SigninForm = ({ onSubmit, captchaUrl }) => {
 
                         <MyCheckbox className={s.checkbox} name='rememberMe'>
                             Remember me
-                    </MyCheckbox>
+                        </MyCheckbox>
 
                         <button type='submit'>Sign in</button >
                         {/* <button type='reset' onClick={Formik.handleReset}>Reset</button> */}
