@@ -6,6 +6,7 @@ import { FaGithub, FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { MdEdit } from 'react-icons/md'
 
 
+
 const ProfileInfo = ({ profile, isOwner, saveProfile }) => {
 
     let [editMode, setEditMode] = useState(false);
@@ -33,6 +34,7 @@ const ProfileInfo = ({ profile, isOwner, saveProfile }) => {
 }
 
 export const ProfileData = ({ profile }) => {
+
     return <>
         <div>
             <h4>About me</h4>

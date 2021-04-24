@@ -3,17 +3,12 @@ import s from './HeroProfile.module.css'
 import banner from '../../../assets/images/banner.jpg'
 import ProfileInfo from '../ProfileInfo'
 import userPhoto from '../../../assets/images/user.png'
-import Preloader from '../../Common/Preloader/preloader'
 import ProfileStatusWithHooks from '../ProfileStatusWithHooks'
 import { MdAddAPhoto } from 'react-icons/md'
 
 
 
 const HeroProfile = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
-
-    if (!profile) {
-        return <Preloader />
-    }
 
     return (
         <>
@@ -24,13 +19,6 @@ const HeroProfile = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
                 updateStatus={updateStatus}
                 isOwner={isOwner}
                 savePhoto={savePhoto} />
-            <ProfileInfo
-                profile={profile}
-                isOwner={isOwner}
-                savePhoto={savePhoto}
-                saveProfile={saveProfile}
-            />
-
         </>
     )
 }

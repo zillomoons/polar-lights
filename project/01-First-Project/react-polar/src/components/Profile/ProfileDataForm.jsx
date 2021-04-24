@@ -79,7 +79,7 @@ export const ProfileDataFormik = ({ profile, onSubmit, error }) => {
             })}
             onSubmit={(values) => { onSubmit(values) }}
         >
-            <Form>
+            <Form className={s.profileForm}>
                 <MyTextInput
                     label='Name'
                     name='fullName'

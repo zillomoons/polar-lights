@@ -1,7 +1,7 @@
 
 
 
-input[type='file'] {
+.profileForm input[type='file'] {
     display: none;
 }
 .customFileUpload {
@@ -10,7 +10,7 @@ input[type='file'] {
     padding: 6px 12px;
     cursor: pointer;
 }
-input[type='text']{
+.profileForm input[type='text']{
         display: block;
         font-size: 16px;
         width: 200px;

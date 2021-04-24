@@ -61,10 +61,12 @@
 .loginForm input[type='email'],
 .loginForm input[type='password']
 {
+    display: block;
     margin-bottom: 32px;
     padding: 16px;
     border: none;
     border-radius: 4px;
+    width: 100%;
 }
 
 .loginForm input[type='checkbox']{
