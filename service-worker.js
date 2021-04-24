@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/polar-lights/precache-manifest.5a80e78a65440aed8e49fa21390be4e5.js"
+  "/polar-lights/precache-manifest.7234a16a058304a1a79f16c822c9a538.js"
 );
 
 self.addEventListener('message', (event) => {
